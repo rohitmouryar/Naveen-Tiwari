@@ -251,12 +251,9 @@
     font-size: 12px;
     margin-top: 15px;
   }
-  .btn{
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
 }
 
+ 
 /* Button Hover */
 .back-btn:hover {
   transform: scale(1.05);
