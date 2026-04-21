@@ -135,7 +135,6 @@ html, body {
 
   transform: translate(-50%, -50%);
 
-  /* width: min(90%, 300px); */
   padding: clamp(15px, 3vw, 30px);
 
   display: flex;
@@ -144,14 +143,6 @@ html, body {
   gap: 20px;
 
   border-radius: 25px;
-
-/* 
-    background: rgb(255 126 95 / 27%);
-      backdrop-filter: blur(20px); */
-
-  /* box-shadow:
-    0 0 40px rgba(255, 255, 255, 0.08),
-    0 0 80px rgba(255, 126, 95, 0.15); */
 
   opacity: 0;
   animation: cinematicEntry 1.2s ease forwards;
@@ -316,12 +307,11 @@ html, body {
 @keyframes cinematicEntry {
   0% {
     opacity: 0;
-    transform: translate(-50%, -40%) scale(0.7);
-    filter: blur(8px);
+    transform: translateY(20px);
   }
+
   100% {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-    filter: blur(0);
+    transform: translateY(0);
   }
 }

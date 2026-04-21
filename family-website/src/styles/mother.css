@@ -112,7 +112,8 @@ html, body {
   border-radius: 30px;
   background: linear-gradient(45deg, #ff4d5a, #ff7a18);
   color: white;
-  cursor: pointer;
+ 
+  
   transition: all 0.3s ease;
   font-size: clamp(13px, 2vw, 15px);
   font-weight: 600;
