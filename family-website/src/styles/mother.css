@@ -13,14 +13,16 @@ html, body {
 
 /* ================= HERO ================= */
 .hero {
-  min-height: 100dvh;   /* ✅ full screen */
-  height: auto;         /* ✅ content cut nahi hoga */
+  min-height: 100dvh;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 40px 8%;
+  padding: clamp(40px, 8vw, 60px) clamp(20px, 5vw, 50px);
   position: relative;
-  overflow: visible;    /* ❗ important fix */
+  overflow: visible;
+  gap: clamp(20px, 5vw, 40px);
+  flex-wrap: wrap;
 }
 
 /* ================= BACKGROUND VIDEO ================= */
@@ -65,19 +67,21 @@ html, body {
 .hero-left,
 .hero-right {
   flex: 1;
+  min-width: 250px;
 }
 
 /* ================= LEFT CONTENT ================= */
 .hero-left {
-  max-width: 500px;
-  margin-left:100px;
+  max-width: clamp(280px, 90%, 500px);
+  margin-left: clamp(0px, 5vw, 100px);
   z-index: 2;
 }
 
 .hero-left h1 {
-  font-size: 42px;
+  font-size: clamp(28px, 6vw, 42px);
   font-weight: 700;
   line-height: 1.2;
+  margin-bottom: 15px;
 }
 
 .hero-left h1 span {
@@ -89,15 +93,163 @@ html, body {
 .hero-left h3 {
   margin-top: 10px;
   color: #ff4d5a;
+  font-size: clamp(14px, 3vw, 16px);
+  margin-bottom: 8px;
 }
 
 .hero-left p {
   margin: 15px 0;
   color: #ccc;
   line-height: 1.6;
+  font-size: clamp(14px, 2.5vw, 16px);
 }
 
 /* ================= BUTTON ================= */
+.btn {
+  margin-top: 10px;
+  padding: clamp(10px, 2vw, 12px) clamp(20px, 3vw, 28px);
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #ff4d5a, #ff7a18);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: clamp(13px, 2vw, 15px);
+  font-weight: 600;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(255, 77, 90, 0.4);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* ================= RIGHT IMAGE ================= */
+.hero-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  flex: 1;
+  min-width: 200px;
+}
+
+.hero-right img {
+  width: 100%;
+  max-width: clamp(200px, 40vw, 300px);
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  transition: 0.3s;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.hero-right img:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 20px 50px rgba(255, 77, 90, 0.3);
+}
+
+/* ================= TABLET (768px - 1024px) ================= */
+@media (max-width: 1024px) {
+  .hero {
+    padding: clamp(60px, 6vw, 80px) clamp(20px, 4vw, 40px);
+    justify-content: center;
+  }
+
+  .hero-left {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .hero-left h1 {
+    font-size: clamp(24px, 5vw, 36px);
+  }
+
+  .hero-right {
+    margin-top: 20px;
+  }
+
+  .hero-right img {
+    max-width: clamp(180px, 35vw, 250px);
+  }
+
+  /* ❌ remove heavy animation */
+  .hero::after {
+    display: none;
+  }
+}
+
+/* ================= MOBILE (480px - 768px) ================= */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: clamp(80px, 8vw, 100px) clamp(15px, 3vw, 25px);
+    text-align: center;
+  }
+
+  .hero-left {
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .hero-left h1 {
+    font-size: clamp(22px, 4.5vw, 32px);
+  }
+
+  .hero-left h3 {
+    font-size: clamp(13px, 2.5vw, 15px);
+  }
+
+  .hero-left p {
+    font-size: clamp(13px, 2vw, 14px);
+  }
+
+  .hero-right img {
+    max-width: clamp(160px, 30vw, 220px);
+    margin-top: 20px;
+  }
+
+  .btn {
+    margin: 15px auto 0;
+  }
+}
+
+/* ================= SMALL MOBILE (< 480px) ================= */
+@media (max-width: 480px) {
+  .hero {
+    padding: clamp(70px, 8vw, 90px) clamp(12px, 3vw, 15px);
+    gap: 15px;
+  }
+
+  .hero-left h1 {
+    font-size: clamp(20px, 4vw, 26px);
+    line-height: 1.1;
+  }
+
+  .hero-left h3 {
+    font-size: 12px;
+    margin-top: 8px;
+  }
+
+  .hero-left p {
+    font-size: clamp(12px, 2vw, 13px);
+    margin: 10px 0;
+  }
+
+  .hero-right img {
+    max-width: clamp(140px, 28vw, 180px);
+  }
+
+  .btn {
+    padding: 8px 16px;
+    font-size: 12px;
+    width: 100%;
+    max-width: 200px;
+  }
+}
 .btn {
   margin-top: 10px;
   padding: 12px 28px;
@@ -160,7 +312,7 @@ html, body {
   }
 
   .hero-right img {
-    max-width: 170px; /* ✅ smaller image */
+    max-width: 150px; /* ✅ smaller image */
     margin-top: 30px;
 
   }

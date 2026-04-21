@@ -5,7 +5,7 @@
   left: 0;
   width: 100%;
 
-  padding: 12px 25px;
+  padding: clamp(10px, 2vw, 15px) clamp(15px, 3vw, 25px);
   box-sizing: border-box;
 
   display: flex;
@@ -37,29 +37,42 @@
 
 /* Logo */
 .logo {
-  /* color: #00eaff; */
   color: rgba(219, 112, 84, 1);
-
-  font-size: 22px;
+  font-size: clamp(18px, 4vw, 22px);
   font-weight: bold;
   letter-spacing: 1px;
-
   transition: 0.3s;
+  flex-shrink: 0;
 }
 
-.logoText{
+.logoText {
   text-decoration: none;
+  color: inherit;
 }
 
 .logo:hover {
   text-shadow: 0 0 10px #00eaff;
 }
 
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  font-size: clamp(20px, 5vw, 28px);
+  color: rgba(219, 112, 84, 1);
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 1001;
+}
+
+.hamburger:hover {
+  transform: scale(1.2);
+}
+
 /* Links */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 25px;
+  gap: clamp(15px, 3vw, 25px);
   align-items: center;
 }
 
@@ -68,10 +81,10 @@
   position: relative;
   color: white;
   text-decoration: none;
-  font-size: 16px;
+  font-size: clamp(14px, 2vw, 16px);
   padding: 5px;
-
   transition: 0.3s;
+  white-space: nowrap;
 }
 
 /* 🔥 Underline Animation */
@@ -82,9 +95,7 @@
   bottom: -5px;
   width: 0%;
   height: 2px;
-  /* background: #00eaff; */
   background: rgba(219, 112, 84, 1);
-
   transition: 0.3s;
 }
 
@@ -94,8 +105,85 @@
 
 /* Hover Effect */
 .nav-links li a:hover {
-  /* color: #00eaff; */
   color: rgba(219, 112, 84, 1);
+}
+
+/* ================= MOBILE MENU ================= */
+@media (max-width: 768px) {
+  /* Show Hamburger */
+  .hamburger {
+    display: block;
+  }
+
+  /* Hide Desktop Menu by Default */
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(20, 20, 30, 0.98);
+    backdrop-filter: blur(15px);
+    padding: 20px 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Show Menu When Active */
+  .nav-links.active {
+    max-height: 400px;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links li a {
+    display: block;
+    padding: 8px;
+    font-size: 15px;
+  }
+
+  .nav-links li a::after {
+    display: none;
+  }
+
+  .nav-links li a:hover {
+    background: rgba(219, 112, 84, 0.1);
+    border-radius: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 12px 10px;
+  }
+
+  .logo {
+    font-size: clamp(16px, 4vw, 18px);
+  }
+
+  .hamburger {
+    font-size: 24px;
+  }
+
+  .nav-links {
+    top: 55px;
+  }
+
+  .nav-links li a {
+    font-size: 14px;
+  }
 }
 
 /* Hamburger */

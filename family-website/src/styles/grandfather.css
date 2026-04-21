@@ -26,6 +26,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: clamp(20px, 3vw, 40px);
 
   /* Glass Effect */
   /* backdrop-filter: blur(10px); */
@@ -37,13 +38,13 @@
 
 /* 👴 Profile Image */
 .profile-img {
-  width: 321px;
-  height: 350 px;
+  width: clamp(200px, 50vw, 320px);
+  height: clamp(220px, 55vw, 350px);
   border-radius: 50%;
   object-fit: cover;
-  border: 19px solid rgb(96 94 127 / 60%);
+  border: clamp(10px, 3vw, 20px) solid rgb(96 94 127 / 60%);
   box-shadow: 0 0 51px rgb(180 108 108);
-  margin-bottom: 46px;
+  margin-bottom: clamp(20px, 3vw, 50px);
 
   /* Entry Animation */
   animation: floatIn 1s ease forwards;
@@ -57,8 +58,8 @@
 
 /* ✨ Name Styling */
 .page h2 {
-  font-size: 28px;
-  margin: -10px 0;
+  font-size: clamp(20px, 5vw, 28px);
+  margin: clamp(-5px, 1vw, -10px) 0;
 
   /* Gradient Text */
   background: linear-gradient(45deg, #ffcc70, #ff8177);
@@ -70,10 +71,10 @@
 
 /* 👑 Title Styling */
 .page h3 {
-  font-size: 22px;
+  font-size: clamp(16px, 4vw, 22px);
   letter-spacing: 2px;
   color: #f5f5f5;
-margin-top: 20px;
+  margin-top: clamp(10px, 2vw, 20px);
   animation: fadeIn 1.8s ease forwards;
 }
 
@@ -98,6 +99,81 @@ margin-top: 20px;
   0% {
     opacity: 0;
     transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= TABLET (768px - 1024px) ================= */
+@media (max-width: 1024px) {
+  .profile-img {
+    width: clamp(180px, 45vw, 280px);
+    height: clamp(200px, 50vw, 300px);
+    margin-bottom: clamp(20px, 3vw, 40px);
+  }
+
+  .page h2 {
+    font-size: clamp(18px, 4vw, 24px);
+  }
+
+  .page h3 {
+    font-size: clamp(14px, 3vw, 20px);
+  }
+}
+
+/* ================= MOBILE (480px - 768px) ================= */
+@media (max-width: 768px) {
+  .hero-container {
+    height: 100dvh;
+  }
+
+  .page {
+    padding: clamp(15px, 3vw, 30px);
+  }
+
+  .profile-img {
+    width: clamp(160px, 40vw, 240px);
+    height: clamp(180px, 45vw, 260px);
+    border-width: clamp(8px, 2vw, 15px);
+    margin-bottom: clamp(15px, 2vw, 30px);
+  }
+
+  .page h2 {
+    font-size: clamp(16px, 3.5vw, 20px);
+  }
+
+  .page h3 {
+    font-size: clamp(13px, 2.5vw, 16px);
+    letter-spacing: 1px;
+    margin-top: clamp(8px, 2vw, 15px);
+  }
+}
+
+/* ================= SMALL MOBILE (< 480px) ================= */
+@media (max-width: 480px) {
+  .page {
+    padding: 12px;
+  }
+
+  .profile-img {
+    width: clamp(140px, 35vw, 200px);
+    height: clamp(150px, 40vw, 220px);
+    border-width: clamp(6px, 1.5vw, 12px);
+    margin-bottom: clamp(12px, 2vw, 20px);
+  }
+
+  .page h2 {
+    font-size: clamp(14px, 3vw, 18px);
+  }
+
+  .page h3 {
+    font-size: clamp(12px, 2vw, 14px);
+    letter-spacing: 0.5px;
+    margin-top: 8px;
+  }
+}
   }
   100% {
     opacity: 1;

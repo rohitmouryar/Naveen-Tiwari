@@ -55,11 +55,11 @@ body {
 }
 
 #root {
-  width: 1126px;
+  width: 100%;
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
-  border-inline: 1px solid var(--border);
+  border-inline: clamp(0px, 0.5vw, 1px) solid var(--border);
   min-height: 100svh;
   display: flex;
   flex-direction: column;
@@ -74,23 +74,44 @@ h2 {
 }
 
 h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
+  font-size: clamp(32px, 6vw, 56px);
+  letter-spacing: clamp(-1.68px, -0.2vw, -1.68px);
+  margin: clamp(20px, 3vw, 32px) 0;
+}
+
+@media (max-width: 1024px) {
+  h1 {
+    font-size: clamp(28px, 5vw, 36px);
+    margin: clamp(16px, 2vw, 20px) 0;
   }
 }
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: clamp(24px, 4vw, 28px);
+    margin: clamp(12px, 2vw, 16px) 0;
+  }
+}
+
 h2 {
-  font-size: 24px;
+  font-size: clamp(16px, 4vw, 24px);
   line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
+  letter-spacing: clamp(-0.24px, -0.02vw, -0.24px);
+  margin: 0 0 clamp(4px, 1vw, 8px);
+}
+
+@media (max-width: 1024px) {
+  h2 {
+    font-size: clamp(14px, 3vw, 20px);
   }
 }
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: clamp(12px, 2.5vw, 16px);
+  }
+}
+
 p {
   margin: 0;
 }

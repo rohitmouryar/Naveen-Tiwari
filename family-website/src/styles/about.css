@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: clamp(15px, 3vw, 20px);
 
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   overflow: hidden;
@@ -42,8 +43,8 @@
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(20px);
 
-  padding: 35px;
-  margin-top: 65px;
+  padding: clamp(20px, 4vw, 35px);
+  margin-top: clamp(50px, 5vw, 65px);
   border-radius: 20px;
   color: white;
 
@@ -56,6 +57,8 @@
 
   animation: slideUp 0.8s ease;
   transition: transform 0.3s ease;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
 }
 
 /* Hover Lift Effect */
@@ -67,7 +70,7 @@
 .title {
   text-align: center;
   margin-bottom: 20px;
-  font-size: 28px;
+  font-size: clamp(20px, 5vw, 28px);
   letter-spacing: 1px;
   color: #00eaff;
 }
@@ -77,6 +80,7 @@
   margin: 8px 0;
   line-height: 1.5;
   transition: transform 0.3s ease;
+  font-size: clamp(12px, 2vw, 16px);
 }
 
 /* Hover on each line */
@@ -85,19 +89,169 @@
   color: #00eaff;
 }
 
+/* Address Box */
+.address-box {
+  margin: 12px 0;
+  padding: clamp(10px, 2vw, 15px);
+  background: rgba(0, 234, 255, 0.05);
+  border-left: 3px solid #00eaff;
+  border-radius: 5px;
+  font-size: clamp(12px, 2vw, 14px);
+}
+
+.address-box p {
+  margin: 6px 0;
+}
+
 /* Button */
 .back-btn {
   margin-top: 25px;
   width: 100%;
-  padding: 12px;
+  padding: clamp(10px, 2vw, 12px);
 
   border: none;
   border-radius: 10px;
 
   background: linear-gradient(45deg, #00eaff, #0072ff);
   color: white;
-  font-size: 16px;
+  font-size: clamp(12px, 2vw, 16px);
   font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(0, 234, 255, 0.4);
+}
+
+.back-btn:active {
+  transform: scale(0.98);
+}
+
+/* ================= SLIDEUP ANIMATION ================= */
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= SCROLLBAR STYLING ================= */
+.about-card::-webkit-scrollbar {
+  width: 6px;
+}
+
+.about-card::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.about-card::-webkit-scrollbar-thumb {
+  background: rgba(0, 234, 255, 0.3);
+  border-radius: 10px;
+}
+
+.about-card::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 234, 255, 0.6);
+}
+
+/* ================= TABLET (768px - 1024px) ================= */
+@media (max-width: 1024px) {
+  .about-card {
+    padding: clamp(18px, 3.5vw, 30px);
+    margin-top: clamp(45px, 4vw, 55px);
+  }
+
+  .title {
+    font-size: clamp(18px, 4vw, 24px);
+  }
+
+  .info p {
+    font-size: clamp(11px, 1.8vw, 14px);
+  }
+}
+
+/* ================= MOBILE (480px - 768px) ================= */
+@media (max-width: 768px) {
+  .about-page {
+    padding: clamp(12px, 2vw, 15px);
+  }
+
+  .about-card {
+    width: 95%;
+    padding: clamp(16px, 3vw, 25px);
+    margin-top: clamp(40px, 4vw, 50px);
+    border-radius: 15px;
+  }
+
+  .title {
+    font-size: clamp(16px, 3.5vw, 22px);
+    margin-bottom: 15px;
+  }
+
+  .info p {
+    font-size: clamp(11px, 1.8vw, 13px);
+    margin: 7px 0;
+  }
+
+  .address-box {
+    margin: 10px 0;
+    padding: clamp(8px, 2vw, 12px);
+  }
+
+  .back-btn {
+    padding: clamp(9px, 1.5vw, 11px);
+    font-size: clamp(11px, 1.8vw, 14px);
+    margin-top: 20px;
+  }
+}
+
+/* ================= SMALL MOBILE (< 480px) ================= */
+@media (max-width: 480px) {
+  .about-page {
+    padding: 10px;
+  }
+
+  .about-card {
+    width: 100%;
+    padding: 14px;
+    margin-top: 35px;
+    border-radius: 12px;
+    max-height: calc(100vh - 60px);
+  }
+
+  .title {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .info p {
+    font-size: 11px;
+    margin: 5px 0;
+    line-height: 1.4;
+  }
+
+  .address-box {
+    margin: 8px 0;
+    padding: 8px;
+    font-size: 10px;
+  }
+
+  .address-box p {
+    margin: 4px 0;
+  }
+
+  .back-btn {
+    padding: 8px;
+    font-size: 12px;
+    margin-top: 15px;
+  }
+}
 
   cursor: pointer;
   transition: all 0.3s ease;

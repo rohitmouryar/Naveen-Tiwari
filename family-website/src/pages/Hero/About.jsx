@@ -34,6 +34,9 @@ export default function About() {
           </p>
 
           {/* ✅ Improved Address Section */}
+          <p>
+            <strong>Phone:</strong> 📞 7618541625
+          </p>
           <div className="address-box">
             <strong>Address:</strong>
             <p>📍 Vill + Post: Shahpur</p>
@@ -41,9 +44,6 @@ export default function About() {
             <p>🌍 District: Siwan, Bihar - 841243</p>
           </div>
 
-          <p>
-            <strong>Phone:</strong> 📞 7618541625
-          </p>
         </div>
 
         <button className="back-btn" onClick={() => navigate(-1)}>
