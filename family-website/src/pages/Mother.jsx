@@ -1,6 +1,6 @@
 import React from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
-import "../styles/father.css";
+import "../styles/mother.css";
 import profileImg from "../assets/mother.jpeg";
 import bgVideo from "../assets/background.mp4";
 
