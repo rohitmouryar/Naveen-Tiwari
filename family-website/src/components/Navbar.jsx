@@ -18,7 +18,9 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="logo">👨‍👩‍👦 Family</div>
+      <div  className="logo">
+        <Link className="logoText" to={"/"}>👨‍👩‍👦 Family</Link>
+        </div>
 
       {/* Hamburger */}
       <div className="hamburger" onClick={() => setOpen(!open)}>

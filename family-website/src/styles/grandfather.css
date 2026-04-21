@@ -41,9 +41,8 @@
   height: 350 px;
   border-radius: 50%;
   object-fit: cover;
-  border: 30px solid rgb(96 94 127 / 60%);
-  box-shadow: 0 0 25px rgb(180 108 108 / 60%);
-
+  border: 19px solid rgb(96 94 127 / 60%);
+  box-shadow: 0 0 51px rgb(180 108 108);
   margin-bottom: 46px;
 
   /* Entry Animation */
@@ -112,8 +111,8 @@
 
 @media (max-width: 768px) {
   .profile-img {
-    width: 160px;
-    height: 160px;
+    width: 271px;
+    height: 337px;
   }
 
   .page h2 {

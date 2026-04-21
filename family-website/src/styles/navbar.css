@@ -47,6 +47,10 @@
   transition: 0.3s;
 }
 
+.logoText{
+  text-decoration: none;
+}
+
 .logo:hover {
   text-shadow: 0 0 10px #00eaff;
 }

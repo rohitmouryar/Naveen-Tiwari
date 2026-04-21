@@ -1,5 +1,33 @@
-/* 🌍 MAIN HERO */
+
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+
+
 .hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 10%;
+  position: relative;
+  overflow: hidden;
+}
+/* 🌍 MAIN HERO */
+/* .hero {
   height: 93vh;
   display: flex;
   align-items: center;
@@ -7,7 +35,7 @@
   padding: 59px 283px;
   position: relative;
   overflow: hidden;
-}
+} */
 
 /* overlay (dark effect for readability) */
 .hero::before {
@@ -50,20 +78,9 @@
 }
 
 /* 🔵 Floating Blob */
-.hero::after {
-  content: "";
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  background: #ff4d5a30;
-  border-radius: 50%;
-  top: 10%;
-  left: 60%;
-  /* filter: blur(120px); */
-  animation: floatBlob 8s ease-in-out infinite;
-}
 
-@keyframes floatBlob {
+
+/* @keyframes floatBlob {
   0%,
   100% {
     transform: translateY(0);
@@ -71,11 +88,12 @@
   50% {
     transform: translateY(50px);
   }
-}
+} */
 
 /* LEFT */
 .hero-left {
   max-width: 500px;
+  margin-left:320px;
   z-index: 2;
 }
 
@@ -137,6 +155,7 @@
 
 /* 🖼 IMAGE */
 .hero-right {
+  margin-right: 230px;
   z-index: 2;
 }
 
@@ -172,5 +191,18 @@
   .hero-right img {
     width: 250px;
     margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100vh;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero::after {
+    display: none; 
   }
 }

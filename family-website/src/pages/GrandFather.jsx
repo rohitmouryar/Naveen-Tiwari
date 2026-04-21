@@ -37,7 +37,7 @@ export default function GrandFather() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
         >
-          Ex. Mukhiya of Village
+          Ex. Mukhiya 
         </motion.h3>
       </div>
     </div>

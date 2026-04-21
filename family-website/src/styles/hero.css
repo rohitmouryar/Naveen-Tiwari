@@ -1,3 +1,15 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 /* ================= MAIN CONTAINER ================= */
 .hero-container {
   position: relative;
@@ -123,7 +135,7 @@
 
   transform: translate(-50%, -50%);
 
-  width: min(90%, 304px);
+  /* width: min(90%, 300px); */
   padding: clamp(15px, 3vw, 30px);
 
   display: flex;
@@ -133,13 +145,13 @@
 
   border-radius: 25px;
 
-
+/* 
     background: rgb(255 126 95 / 27%);
-      backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px); */
 
-  box-shadow:
+  /* box-shadow:
     0 0 40px rgba(255, 255, 255, 0.08),
-    0 0 80px rgba(255, 126, 95, 0.15);
+    0 0 80px rgba(255, 126, 95, 0.15); */
 
   opacity: 0;
   animation: cinematicEntry 1.2s ease forwards;
