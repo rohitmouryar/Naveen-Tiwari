@@ -251,10 +251,10 @@
     font-size: 12px;
     margin-top: 15px;
   }
-}
-.btn{
-  cursor: pointer;
-  transition: all 0.3s ease;
+  .btn{
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
 }
 
 /* Button Hover */
