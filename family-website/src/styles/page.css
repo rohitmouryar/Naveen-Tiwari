@@ -1,0 +1,147 @@
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  z-index: -10; /* ✅ important (behind everything) */
+  overflow: hidden;
+}
+
+/* actual image layer */
+.bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: blur(8px) brightness(0.7); /* ✅ blur only here */
+  transform: scale(1.1); /* ✅ prevent edge cut */
+}
+
+/* dark overlay */
+.bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Animation */
+@keyframes zoomBg {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+/* ===== DIFFERENT BACKGROUNDS ===== */
+.bg-me {
+  background: url("../assets/photo1.jpeg") no-repeat;
+}
+
+.bg-father {
+  background: url("../assets/photo2.jpeg") no-repeat;
+}
+
+.bg-mother {
+  background: url("../assets/photo3.jpeg") no-repeat;
+}
+
+.bg-brother {
+  background: url("../assets/photo4.jpeg") no-repeat;
+}
+
+.bg-grandfather {
+  background: url("../assets/grandfather.jpg") no-repeat;
+}
+
+/* ===== SPLIT LAYOUT ===== */
+.split-page {
+  display: flex;
+  height: 85vh;
+}
+
+/* ===== LEFT IMAGE ===== */
+.left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  margin-top: 50px;
+}
+
+.left img {
+  width: 85%;
+  max-height: 90vh;
+
+  object-fit: contain;
+  border-radius: 20px;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  transition: 0.5s;
+}
+
+.left img:hover {
+  transform: scale(1.05);
+}
+
+/* ===== RIGHT CONTENT ===== */
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 60px;
+  color: white;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+
+  animation: fadeSlide 1s ease;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.right h1 {
+  font-size: 42px;
+}
+
+.right p {
+  font-size: 18px;
+  color: #ddd;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .split-page {
+    flex-direction: column;
+  }
+
+  .left img {
+    width: 100%;
+    max-height: 300px;
+  }
+
+  .right {
+    padding: 20px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,150 @@
+/* Navbar Container */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  padding: 12px 25px;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* 🔥 Glass Effect */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  z-index: 1000;
+
+  animation: slideDown 0.6s ease;
+}
+
+/* Smooth Entry */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Logo */
+.logo {
+  /* color: #00eaff; */
+  color: rgba(219, 112, 84, 1);
+
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+
+  transition: 0.3s;
+}
+
+.logo:hover {
+  text-shadow: 0 0 10px #00eaff;
+}
+
+/* Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+/* Link Style */
+.nav-links li a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 5px;
+
+  transition: 0.3s;
+}
+
+/* 🔥 Underline Animation */
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  /* background: #00eaff; */
+  background: rgba(219, 112, 84, 1);
+
+  transition: 0.3s;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* Hover Effect */
+.nav-links li a:hover {
+  /* color: #00eaff; */
+  color: rgba(219, 112, 84, 1);
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hamburger:hover {
+  transform: rotate(90deg);
+  color: #00eaff;
+}
+
+/* 🔥 Mobile Responsive */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 10px; /* 🔥 FIX: pehle 0 tha → ab proper spacing */
+
+    flex-direction: column;
+    width: 200px;
+    padding: 20px;
+
+    border-radius: 12px;
+
+    /* 🔥 Glass Dropdown */
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(20px);
+
+    transform: translateY(-20px) scale(0.9);
+    opacity: 0;
+    pointer-events: none;
+
+    transition: all 0.3s ease;
+  }
+
+  /* Active Menu */
+  .nav-links.active {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-links li {
+    margin: 12px 0;
+    text-align: center;
+  }
+}

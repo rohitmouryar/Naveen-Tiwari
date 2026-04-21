@@ -1,0 +1,22 @@
+.page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, #141e30, #243b55);
+  color: white;
+
+  text-align: center;
+}
+
+.page h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.page p {
+  font-size: 18px;
+  opacity: 0.8;
+}
